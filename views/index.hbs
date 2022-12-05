@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templating in NestJS with Handlebars</title>
+  </head>
+  <body>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <form method="post" action="/create">
+      <label for="apiPath">Api path:</label><br>
+      <select name="apiPath" id="apiPath">
+        {{#each paths}}
+          <option value="{{this.value}}" {{isSelected isSelected}}>{{this.value}}</option>
+        {{~/each}}
+      </select>
+      <br>
+      
+      <label for="mock">Mock response:</label><br>
+      <textarea id="mock" name="mock" rows="5" cols="33">{{mock}}</textarea>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+    {{~#if response}}
+      <div>
+        response: {{ response }}
+      </div>
+    {{~/if~}}
+  </body>
+</html>
